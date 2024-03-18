@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -130,7 +130,7 @@ vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -140,7 +140,8 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+--vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '| ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -149,7 +150,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 2
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -812,13 +813,105 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
 
+  -- NOTE: Here is where I start adding my own plugins
+  {
+    'comfysage/evergarden',
+    opts = {
+      transparent_background = true,
+      contrast_dark = 'medium', -- 'hard'|'medium'|'soft'
+      overrides = {}, -- add custom overrides
+    },
+  },
+  --{'crispybaccoon/evergarden '}
+  { 'sainnhe/everforest' },
+  { 'sainnhe/gruvbox-material' },
+  { 'sainnhe/edge' },
+  { 'sainnhe/sonokai' },
+  { 'rafi/awesome-vim-colorschemes' },
+  { 'craftzdog/solarized-osaka.nvim' },
+  { 'overcache/NeoSolarized' },
+  { 'ellisonleao/gruvbox.nvim' },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+
+  { 'rebelot/kanagawa.nvim', priority = 1000 },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
+  { 'kepano/flexoki-neovim', name = 'flexoki' },
+  { 'jacoborus/tender.vim' },
+  { 'nyoom-engineering/oxocarbon.nvim' },
+  { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
+  { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
+  { 'savq/melange-nvim' },
+  { 'rktjmp/lush.nvim', lazy = false, priority = 1000 },
+  {
+    'mcchrish/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = 'rktjmp/lush.nvim',
+  },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('nordic').load()
+    end,
+  },
+  { 'rmehri01/onenord.nvim' },
+  { 'patstockwell/vim-monokai-tasty', name = 'monokai-tasty' },
+  { 'luisiacc/gruvbox-baby', branch = 'main' },
+  {
+    'Shatur/neovim-ayu',
+    name = 'ayu',
+    mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+    overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
+  },
+  {
+    'nvim-neorg/neorg',
+    build = ':Neorg sync-parsers',
+    lazy = false, -- specify lazy = false because some lazy.nvim distributions set lazy = true by default
+    -- tag = "*",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('neorg').setup {
+        load = {
+          ['core.defaults'] = {}, -- Loads default behaviour
+          ['core.concealer'] = {}, -- Adds pretty icons to your documents
+          ['core.dirman'] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = '~/notes',
+                outlines = '~/outlines',
+                vdt = '~/vdt',
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  'ggandor/leap.nvim',
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  -- bdpierce: moving here so that vimoutliner loads last in order to set '\' mapleader without conflicts
+  'github/copilot.vim',
+  { import = 'custom.plugins' },
 }, {
+
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons otherwise define a unicode icons table
@@ -839,6 +932,23 @@ require('lazy').setup({
     },
   },
 })
+
+-- NOTE: And now configs for my added plugins
+-- bpierce
+-- just making sure nothing changed the mapleader back after setting it for vimoutliner
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+require('oil').setup {
+  -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
+  -- Set to false if you still want to use netrw.
+  default_file_explorer = true,
+}
+
+--oil setup
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+require 'bdpierce'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

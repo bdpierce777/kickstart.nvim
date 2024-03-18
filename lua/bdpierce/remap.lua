@@ -1,0 +1,178 @@
+print 'hello from bdpierce.remap'
+vim.g.mapleader = ' '
+vim.keymap.set('n', '<Leader>pv', 'vim.cmd.Ex')
+
+vim.keymap.set('n', '<Leader>nb', vim.cmd('hi Normal guibg=none'))
+
+vim.g.mapleader = ','
+
+vim.keymap.set('n', '<Leader>j', 'J')
+vim.keymap.set('n', '<Leader>k', 'K')
+vim.keymap.set('n', 'J', '<nop>')
+vim.keymap.set('n', 'K', '<nop>')
+
+vim.keymap.set('n', '<C-L>', ':wa<return>:e<return><C-L>', { noremap = true })
+
+-- let <Leader>zz work like zz
+vim.keymap.set('i', '<Leader>zz', '<esc>zza')
+
+-- TODO: how to do this
+vim.keymap.set('n', '<C-a>', 'I')
+vim.keymap.set('n', '<C-e>', 'A')
+vim.keymap.set('i', '<C-a>', 'I')
+vim.keymap.set('i', '<C-e>', 'A')
+vim.keymap.set('n', '<tab><tab>', '<C-W><C-W>')
+vim.keymap.set('n', 'UU', 'VU', { noremap = true })
+vim.keymap.set('n', '<Leader>U', 'VU', { noremap = true })
+vim.keymap.set('n', '<Leader>u', 'Vu', { noremap = true })
+vim.keymap.set('n', '<Leader>V', 'Vu', { noremap = true })
+
+vim.keymap.set('i', '<Leader>o', '<esc>o')
+vim.keymap.set('i', '<Leader>O', '<esc>O')
+vim.keymap.set('n', '<Leader>OO', '<esc>O<BS>')
+
+vim.keymap.set('i', '{{', '{}<esc>i')
+
+vim.keymap.set('n', 'tt', 'xp')
+vim.keymap.set('i', '<Leader>{{<tab>', '{}<esc>i')
+vim.keymap.set('i', '<Leader>{{', ' {}<esc>i')
+--prayer
+vim.keymap.set('i', '<Leader>{g', ' {general}<esc>i')
+vim.keymap.set('i', '<Leader>{i', ' {intent}<esc>i')
+vim.keymap.set('i', '<Leader>{c', ' {context}<esc>i')
+vim.keymap.set('i', '<Leader>{l', ' {global context}<esc>i')
+vim.keymap.set('i', '<Leader>{n', ' {nullification??}<esc>i')
+--amelia
+vim.keymap.set('i', '<Leader>{b', ' {background}<esc>i')
+vim.keymap.set('i', '<Leader>{f', ' {foreground}<esc>i')
+vim.keymap.set('i', '<Leader>{p', ' {point}<esc>i')
+vim.keymap.set('i', '<Leader>{m', ' {main}<esc>i')
+vim.keymap.set('i', '<Leader>{k', ' {keypoint}<esc>i')
+vim.keymap.set('i', '<Leader>{r', ' {principle}<esc>i')
+vim.keymap.set('i', '<Leader>{hs', ' {her strengths}<esc>i')
+
+vim.keymap.set('i', '<Leader>{ms', ' {my strengths}<esc>i')
+vim.keymap.set('i', '<Leader>{hw', ' {her weaknesses}<esc>i')
+vim.keymap.set('i', '<Leader>{mw', ' {my weaknesses}<esc>i')
+vim.keymap.set('i', '<Leader>{hn', ' {her needs}<esc>i')
+vim.keymap.set('i', '<Leader>{mn', ' {my needs}<esc>i')
+vim.keymap.set('i', '<Leader>{x', ' {xxx}<esc>i')
+vim.keymap.set('i', '<Leader>{x', ' {xxx}<esc>i')
+vim.keymap.set('i', '<Leader>{x', ' {xxx}<esc>i')
+vim.keymap.set('i', '<Leader>{x', ' {xxx}<esc>i')
+
+--" selection to heading caption
+vim.cmd 'nnoremap <F10> ^f{p'
+--" line to above heading caption
+vim.cmd 'nnoremap <F11> ^vg_dk^f}Pjddk'
+
+--vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
+vim.keymap.set('n', '<F1>', ':!ls -alt > lst.otl<Return>')
+vim.keymap.set('n', '<F2>', ':e lst.otl<Return>')
+vim.keymap.set('n', '<F3>', '<C-V>GeeeeeeeeldggVG>')
+vim.keymap.set('n', '<F4>', ":echo 'user4'<Return>")
+vim.keymap.set('n', '<F5>', ":echo 'user5'<Return>")
+vim.keymap.set('n', '<F6>', ":echo 'user6'<Return>")
+vim.keymap.set('n', '<F7>', ":echo 'user7'<Return>")
+vim.keymap.set('n', '<F8>', ":echo 'user8'<Return>")
+vim.keymap.set('n', '<F9>', ":echo 'user9'<Return>")
+vim.keymap.set('v', '<Leader><Leader>1', "d'uP''")
+vim.keymap.set('v', '<Leader><Leader>2', "d'vP''")
+vim.keymap.set('v', '<Leader><Leader>3', "d'wP''")
+vim.keymap.set('n', '<Leader><Leader>1', "dd'uP''")
+vim.keymap.set('n', '<Leader><Leader>2', "dd'vP''")
+vim.keymap.set('n', '<Leader><Leader>3', "dd'wP''")
+vim.keymap.set('n', '<Leader><Leader>4', "'uP''")
+vim.keymap.set('n', '<Leader><Leader>5', "'vP''")
+vim.keymap.set('n', '<Leader><Leader>6', 'g_/{<return>vg_Unv^u')
+vim.keymap.set('n', '<Leader><Leader>4', ":echo 'user4'<Return>")
+vim.keymap.set('n', '<Leader><Leader>5', '/{<return>v^U/{<return>vg_u')
+vim.keymap.set('n', '<Leader><Leader>6', 'a{}<esc>i')
+vim.keymap.set('n', '<Leader><Leader>7', '$v^dA{}<esc>P')
+vim.keymap.set('i', '<leader><leader>7', '<esc>$v^dA{}<esc>PA')
+vim.keymap.set('n', '<Leader><Leader>8', '$v^dkA {}<esc>P')
+--vim.keymap.set("n", "<Leader><Leader>8",  "$vi^dkA {}<esc>P", { noremap=true })
+--vim.keymap.set("i", "<Leader><Leader>8",  "<esc>$v^dkA {}<esc>Pkdd", { noremap=true })
+vim.keymap.set('n', '<Leader><Leader>9', 'A {}i')
+vim.keymap.set('i', '<Leader><Leader>9', 'A {}i')
+-- vim.remap.set("n", "<mapleader>pv", vim.cmd.Ex, {})
+-- use arrows for tabs
+vim.keymap.set('n', '<S-Left>', vim.cmd.bprevious, { noremap = true })
+vim.keymap.set('n', '<S-Right>', vim.cmd.bnext, { noremap = true })
+vim.keymap.set('n', '<Leader><Leader>H', vim.cmd.tabprevious, { noremap = true })
+vim.keymap.set('n', '<Leader><Leader>L', vim.cmd.tabnext, { noremap = true })
+vim.keymap.set('n', '<left>', vim.cmd.tabprevious, {})
+vim.keymap.set('n', '<right>', vim.cmd.tabnext, {})
+vim.cmd [[
+    nnoremap <Leader><Leader>K :+tabmove<cr>
+    nnoremap <Leader><Leader>J :-tabmove<cr>
+    nnoremap <up> :+tabmove<cr>
+    nnoremap <down> :-tabmove<cr>
+]]
+--vim.keymap.set("n", "<up>", vim.cmd('+tabmove'), {})
+--vim.keymap.set("n", "<down>", vim.cmd('-tabmove'), {})
+
+-- bookmarks
+--" for setting 2-3 bookmark, selecting multiple-lines cut-and-paste at the
+--" bookmorks sorting through large note files
+vim.cmd [[
+vmap <Leader><Leader>1 d'uPi''
+vmap <Leader><Leader>2 d'vPi''
+vmap <Leader><Leader>3 d'wPi''
+vmap <Leader><Leader>4 y'xPi''
+nmap <Leader><Leader>1 dd'uPi''
+nmap <Leader><Leader>2 dd'vPi''
+nmap <Leader><Leader>3 dd'wPi''
+nmap <Leader><Leader>4 yy'xPi''
+nmap <Leader><Leader>5 'xPi''
+
+" using the "'" character frees up <Leader>[a-z] for other shortcuts
+nmap ''a 'azt
+nmap ''b 'bzt
+nmap ''c 'czt
+nmap ''d 'dzt
+nmap ''e 'ezt
+nmap ''f 'fzt
+"
+" for easy navigation to bookmarks
+nmap <Leader><Leader>a ma'azt
+nmap <Leader><Leader>b mb'bzt
+nmap <Leader><Leader>c mc'czt
+nmap <Leader><Leader>d md'dzt
+nmap <Leader><Leader>e me'ezt
+nmap <leader><Leader>f mf'fzt
+nmap <leader><Leader>g mg'gzt
+" purposely leaving j-h for other remappings
+
+nmap ''g 'gzz
+nmap ''h 'hzz
+"
+nmap <leader><Leader>g mg'gzz
+nmap <leader><Leader>h mh'hzz
+
+"# a range for bottom sorting
+nmap ''n 'nzb
+nmap ''o 'ozb
+nmap ''p 'pzb
+nmap ''q 'qzb
+nmap ''r 'rzb
+nmap ''s 'szb
+nmap ''t 'tzb
+"
+"# a range for bottom sorting
+nmap <Leader><Leader>n mn'nzb
+nmap <Leader><Leader>o mo'ozb
+nmap <Leader><Leader>p mp'pzb
+nmap <Leader><Leader>q mq'qzb
+nmap <Leader><Leader>r mr'rzb
+nmap <Leader><Leader>s ms'szb
+nmap <Leader><Leader>t mt'tzb
+
+" extra bookmarks - helpful for pragramming
+nmap ''u 'uzt
+nmap ''v 'vzt
+nmap ''w 'wzt
+nmap ''x 'xzt
+nmap ''y 'yzt
+nmap ''z 'zzt
+]]

@@ -1,0 +1,124 @@
+print("hello from bdpierce.remap")
+vim.g.mapleader = ','
+vim.keymap.set("n", "<Leader>[", "vim.cmd.colorscheme('solarized8_dark')")
+vim.keymap.set("n", "<Leader>]", 'vim.cmd("colorscheme PaperColor")')
+vim.cmd.colorscheme('solarized8_dark')
+
+
+-- TODO: how to do this
+vim.keymap.set("n", "<C-a>", "I")
+vim.keymap.set("n", "<C-e>", "A")
+vim.keymap.set("i", "<C-a>", "I")
+vim.keymap.set("i", "<C-e>", "A")
+vim.keymap.set("n", "<tab><tab>", "<C-W><C-W>")
+vim.keymap.set("n", "<Leader>U", "VU", { noremap=true })
+vim.keymap.set("n", "<Leader>V", "Vu", { noremap=true })
+
+
+--" selection to heading caption
+vim.cmd("nnoremap <F10> ^f{p")
+--" line to above heading caption
+vim.cmd("nnoremap <F11> ^vg_dk^f}Pjddk")
+
+vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<Leader><Leader><F1>",  ":!ls -alt > lst.otl<Return>")
+vim.keymap.set("n", "<Leader><Leader><F2>",  ":e lst.otl<Return>")
+vim.keymap.set("n", "<Leader><Leader><F3>",  "<C-V>GeeeeeeeeldggVG>")
+vim.keymap.set("n", "<Leader><Leader><F4>",  ":echo 'user4'<Return>")
+vim.keymap.set("n", "<Leader><Leader><F5>",  ":echo 'user5'<Return>")
+vim.keymap.set("n", "<Leader><Leader><F6>",  ":echo 'user6'<Return>")
+vim.keymap.set("n", "<Leader><Leader><F7>",  ":echo 'user7'<Return>")
+vim.keymap.set("n", "<Leader><Leader><F8>",  ":echo 'user8'<Return>")
+vim.keymap.set("n", "<Leader><Leader><F9>",  ":echo 'user9'<Return>")
+vim.keymap.set("v", "<Leader><Leader>1",  "d'uP''")
+vim.keymap.set("v", "<Leader><Leader>2",  "d'vP''")
+vim.keymap.set("v", "<Leader><Leader>3",  "d'wP''")
+vim.keymap.set("n", "<Leader><Leader>1",  "dd'uP''")
+vim.keymap.set("n", "<Leader><Leader>2",  "dd'vP''")
+vim.keymap.set("n", "<Leader><Leader>3",  "dd'wP''")
+vim.keymap.set("n", "<Leader><Leader>4",  "'uP''")
+vim.keymap.set("n", "<Leader><Leader>5",  "'vP''")
+vim.keymap.set("n", "<Leader><Leader>6",  "'wP''")
+vim.keymap.set("n", "<Leader><Leader>4",  ":echo 'user4'<Return>")
+vim.keymap.set("n", "<Leader><Leader>5",  ":echo 'user5'<Return>")
+vim.keymap.set("n", "<Leader><Leader>6",  ":echo 'user6'<Return>")
+vim.keymap.set("n", "<Leader><Leader>7",  "$^V$xk$ {}P")
+vim.keymap.set("i", "<Leader><Leader>7",  "$^V$xk$ {}P")
+vim.keymap.set("n", "<Leader><Leader>8",  "^v$hdkA {}P")
+vim.keymap.set("i", "<Leader><Leader>8",  "^$A {}P")
+vim.keymap.set("n", "<Leader><Leader>9",  "A {}i")
+vim.keymap.set("i", "<Leader><Leader>9",  "A {}i")
+-- vim.remap.set("n", "<mapleader>pv", vim.cmd.Ex, {})
+-- use arrows for tabs
+vim.keymap.set("n", "<left>", vim.cmd.tabprevious, {})
+vim.keymap.set("n", "<right>", vim.cmd.tabnext, {})
+vim.cmd([[
+    nnoremap <up> :+tabmove<cr>
+    nnoremap <down> :-tabmove<cr>
+]])
+--vim.keymap.set("n", "<up>", vim.cmd('+tabmove'), {})
+--vim.keymap.set("n", "<down>", vim.cmd('-tabmove'), {})
+
+-- bookmarks
+--" for setting 2-3 bookmark, selecting multiple-lines cut-and-paste at the
+--" bookmorks sorting through large note files
+vim.cmd([[
+vmap <Leader><Leader>1 d'uPi''
+vmap <Leader><Leader>2 d'vPi''
+vmap <Leader><Leader>3 d'wPi''
+vmap <Leader><Leader>4 y'xPi''
+nmap <Leader><Leader>1 dd'uPi''
+nmap <Leader><Leader>2 dd'vPi''
+nmap <Leader><Leader>3 dd'wPi''
+nmap <Leader><Leader>4 yy'xPi''
+nmap <Leader><Leader>5 'xPi''
+
+nmap <Leader>a 'azt
+nmap <Leader>b 'bzt
+nmap <Leader>c 'czt
+nmap <Leader>d 'dzt
+nmap <Leader>e 'ezt
+nmap <leader>f 'fzt
+"
+" for easy navigation to bookmarks
+nmap <Leader><Leader>a ma'azt
+nmap <Leader><Leader>b mb'bzt
+nmap <Leader><Leader>c mc'czt
+nmap <Leader><Leader>d md'dzt
+nmap <Leader><Leader>e me'ezt
+nmap <leader><Leader>f mf'fzt
+nmap <leader><Leader>g mg'gzt
+" purposely leaving j-h for other remappings
+
+nmap <leader>g 'gzz
+nmap <leader>h 'hzz
+"
+nmap <leader><Leader>g mg'gzz
+nmap <leader><Leader>h mh'hzz
+
+"# a range for bottom sorting
+nmap <Leader>n 'nzb
+nmap <Leader>o 'ozb
+nmap <Leader>p 'pzb
+nmap <Leader>q 'qzb
+nmap <Leader>r 'rzb
+nmap <Leader>s 'szb
+nmap <Leader>t 'tzb
+"
+"# a range for bottom sorting
+nmap <Leader><Leader>n mn'nzb
+nmap <Leader><Leader>o mo'ozb
+nmap <Leader><Leader>p mp'pzb
+nmap <Leader><Leader>q mq'qzb
+nmap <Leader><Leader>r mr'rzb
+nmap <Leader><Leader>s ms'szb
+nmap <Leader><Leader>t mt'tzb
+
+" extra bookmarks - helpful for pragramming
+nmap <Leader>u 'uzt
+nmap <Leader>v 'vzt
+nmap <Leader>w 'wzt
+nmap <Leader>x 'xzt
+nmap <Leader>y 'yzt
+nmap <Leader>z 'zzt
+]])
