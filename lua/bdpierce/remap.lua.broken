@@ -3,10 +3,8 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<Leader>pv', 'vim.cmd.Ex')
 
 vim.g.mapleader = ','
-vim.cmd [[
-nnoremap <Leader>bn :hi Normal guibg=NONE<cr>
-nnoremap <Leader>nb :hi Normal guibg=NONE<cr>
-]]
+vim.keymap.set('n', '<Leader>nb', ':highlight Normal guibg=NONE<cr>')
+vim.keymap.set('n', '<Leader>bn', 'vim.cmd(highlight Normal guibg=NONE)')
 
 vim.keymap.set('n', '<Leader>j', 'J')
 vim.keymap.set('n', '<Leader>k', 'K')
@@ -71,39 +69,42 @@ vim.cmd 'nnoremap <F11> ^vg_dk^f}Pjddk'
 --vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
 vim.keymap.set('n', '<F1>', ':!ls -alt > lst.otl<Return>')
 vim.keymap.set('n', '<F2>', ':e lst.otl<Return>')
+vim.keymap.set('n', '<F3'>, '<C-V>GeeeeeeeeldggVg>')
+
+
+
+
+
 vim.keymap.set('n', '<F3>', '<C-V>GeeeeeeeeldggVG>')
-vim.keymap.set('n', '<F4>', '$v^ygg/<C-R>"<cr>')
-vim.keymap.set('n', '<F5>', 'g_/{<return>vg_Unv^u')
-vim.keymap.set('n', '<FX>', ":echo 'user4'<Return>")
-vim.keymap.set('n', '<F6>', '/{<return>v^U/{<return>vg_u')
-vim.keymap.set('n', '<F7>', 'a{}<esc>i')
-vim.keymap.set('n', '<F8>', '$v^dA{}<esc>P')
-vim.keymap.set('i', '<F8>', '<esc>$v^dA{}<esc>PA')
-vim.keymap.set('n', '<F9>', '$v^dkA {}<esc>P')
+vim.keymap.set('n', '<F4>', ":echo 'user4'<Return>")
+vim.keymap.set('n', '<F5>', ":echo 'user5'<Return>")
+vim.keymap.set('n', '<F6>', ":echo 'user6'<Return>")
+vim.keymap.set('n', '<F7>', ":echo 'user7'<Return>")
+vim.keymap.set('n', '<F8>', ":echo 'user8'<Return>")
+vim.keymap.set('n', '<F9>', ":echo 'user9'<Return>")
+vim.keymap.set('v', '<Leader><Leader>1', "d'uP''")
+vim.keymap.set('v', '<Leader><Leader>2', "d'vP''")
+vim.keymap.set('v', '<Leader><Leader>3', "d'wP''")
+vim.keymap.set('n', '<Leader><Leader>1', "dd'uP''")
+vim.keymap.set('n', '<Leader><Leader>2', "dd'vP''")
+vim.keymap.set('n', '<Leader><Leader>3', "dd'wP''")
+vim.keymap.set('n', '<Leader><Leader>4', "'uP''")
+vim.keymap.set('n', '<Leader><Leader>5', "'vP''")
+vim.keymap.set('n', '<Leader><Leader>6', 'g_/{<return>vg_Unv^u')
+vim.keymap.set('n', '<Leader><Leader>4', ":echo 'user4'<Return>")
+vim.keymap.set('n', '<Leader><Leader>5', '/{<return>v^U/{<return>vg_u')
+vim.keymap.set('n', '<Leader><Leader>6', 'a{}<esc>i')
+vim.keymap.set('n', '<Leader><Leader>7', '$v^dA{}<esc>P')
+vim.keymap.set('i', '<leader><leader>7', '<esc>$v^dA{}<esc>PA')
+vim.keymap.set('n', '<Leader><Leader>8', '$v^dkA {}<esc>P')
 --vim.keymap.set("n", "<Leader><Leader>8",  "$vi^dkA {}<esc>P", { noremap=true })
 --vim.keymap.set("i", "<Leader><Leader>8",  "<esc>$v^dkA {}<esc>Pkdd", { noremap=true })
-vim.keymap.set('n', '<F10>', 'A {}i')
-vim.keymap.set('i', '<F10>', 'A {}i')
-vim.keymap.set('n', '<F11>', '/ONE<cr>ccwTWO<esc>cwTHREE<esc>cwFOUR<esc>cwFIVE<esc>cwSIX<esc>cwSEVEN<esc>')
-vim.keymap.set('n', '<F12>', '/xxx<cr>mtnmunmvnmwnmxnmynmz')
-vim.keymap.set('v', '<Leader><Leader>1', "d'tP''")
-vim.keymap.set('v', '<Leader><Leader>2', "d'uP''")
-vim.keymap.set('v', '<Leader><Leader>3', "d'vP''")
-vim.keymap.set('v', '<Leader><Leader>4', "d'wP''")
-vim.keymap.set('v', '<Leader><Leader>5', "d'xP''")
-vim.keymap.set('v', '<Leader><Leader>6', "d'yP''")
-vim.keymap.set('v', '<Leader><Leader>7', "d'zP''")
-vim.keymap.set('n', '<Leader><Leader>1', "dd'tP''")
-vim.keymap.set('n', '<Leader><Leader>2', "dd'uP''")
-vim.keymap.set('n', '<Leader><Leader>3', "dd'vP''")
-vim.keymap.set('n', '<Leader><Leader>4', "dd'wP''")
-vim.keymap.set('n', '<Leader><Leader>5', "dd'xP''")
-vim.keymap.set('n', '<Leader><Leader>6', "dd'yP''")
-vim.keymap.set('n', '<Leader><Leader>7', "dd'zP''")
+vim.keymap.set('n', '<Leader><Leader>9', 'A {}i')
+vim.keymap.set('i', '<Leader><Leader>9', 'A {}i')
 -- vim.remap.set("n", "<mapleader>pv", vim.cmd.Ex, {})
 -- use arrows for tabs
-vim.keymap.set('n', '<C-Left>', vim.cmd.bprevious, { noremap = true })
-vim.keymap.set('n', '<C-Right>', vim.cmd.bnext, { noremap = true })
+vim.keymap.set('n', '<S-Left>', vim.cmd.bprevious, { noremap = true })
+vim.keymap.set('n', '<S-Right>', vim.cmd.bnext, { noremap = true })
 vim.keymap.set('n', '<Leader><Leader>H', vim.cmd.tabprevious, { noremap = true })
 vim.keymap.set('n', '<Leader><Leader>L', vim.cmd.tabnext, { noremap = true })
 vim.keymap.set('n', '<left>', vim.cmd.tabprevious, {})
@@ -121,15 +122,15 @@ vim.cmd [[
 --" for setting 2-3 bookmark, selecting multiple-lines cut-and-paste at the
 --" bookmorks sorting through large note files
 vim.cmd [[
-"vmap <Leader><Leader>1 d'uPi''
-"vmap <Leader><Leader>2 d'vPi''
-"vmap <Leader><Leader>3 d'wPi''
-"vmap <Leader><Leader>4 y'xPi''
-"nmap <Leader><Leader>1 dd'uPi''
-"nmap <Leader><Leader>2 dd'vPi''
-"nmap <Leader><Leader>3 dd'wPi''
-"nmap <Leader><Leader>4 yy'xPi''
-"nmap <Leader><Leader>5 'xPi''
+vmap <Leader><Leader>1 d'uPi''
+vmap <Leader><Leader>2 d'vPi''
+vmap <Leader><Leader>3 d'wPi''
+vmap <Leader><Leader>4 y'xPi''
+nmap <Leader><Leader>1 dd'uPi''
+nmap <Leader><Leader>2 dd'vPi''
+nmap <Leader><Leader>3 dd'wPi''
+nmap <Leader><Leader>4 yy'xPi''
+nmap <Leader><Leader>5 'xPi''
 
 " using the "'" character frees up <Leader>[a-z] for other shortcuts
 nmap ''a 'azt

@@ -1,5 +1,6 @@
 print 'hello from bdierce'
 --require 'bdpierce.chatgpt'
+require 'bdpierce.luasnip'
 require 'bdpierce.remap'
 --require 'bdpierce.colors'
 vim.cmd 'source ~/.vim/sort23.vim'
@@ -11,7 +12,7 @@ vim.cmd 'au BufNewFile,BufRead *.otl so ~/.vim/vimoutlinerrc'
 vim.cmd [[
     let mapleader = ','
     "colo one 
-    let g:daylight=1
+    let g:daylight=0
     if g:daylight
         set background=light
     else

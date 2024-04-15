@@ -273,6 +273,15 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    opts = {
+      triggers_blacklist = {
+        -- list of mode / prefixes that should never be hooked by WhichKey
+        -- this is mostly relevant for keymaps that start with a native binding
+        --i = { "j", "k", ",", "\\", " ", "{"},
+        i = { "j", "k", ",", "\\"},
+        v = { "j", "k" },
+      },
+    },
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
@@ -660,7 +669,19 @@ require('lazy').setup({
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
-      luasnip.config.setup {}
+      luasnip.config.setup {
+        -- vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
+        -- vim.keymap.set({"i", "s"}, "<C-L>", function() luasnip.jump( 1) end, {silent = true})
+        -- vim.keymap.set({"i", "s"}, "<C-J>", function() luasnip.jump(-1) end, {silent = true})
+
+        -- vim.keymap.set({"i", "s"}, "<C-E>", function()
+        --   if luasnip.choice_active() then
+        --     luasnip.change_choice(1)
+        --   end
+        -- end, {silent = true})
+
+
+      }
 
       cmp.setup {
         snippet = {
